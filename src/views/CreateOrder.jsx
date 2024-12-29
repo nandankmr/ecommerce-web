@@ -30,7 +30,9 @@ const Dashboard = () => {
             const response = await axiosInstance.get(`/api/products`);
             return { products: response.data.products, orderData };
         } catch (error) {
-            console.error(error);
+            showAlert(error?.response?.data?.message ?? "Something went wrong", {
+                type: "warning",
+            });
         }
     };
     const { data: { products, orderData }, isLoading }
