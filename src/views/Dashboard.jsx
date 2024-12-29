@@ -7,7 +7,7 @@ import { Edit2, Trash2 } from "react-feather";
 import axiosInstance from "../utils/AxiosInstrance";
 import Loader from "../layouts/loader/Loader";
 import { showAlert } from "../utils/common";
-import ConfirmationModal from "../layouts/loader/ConfirmationModal";
+import ConfirmationModal from "../components/ConfirmationModal";
 
 const Dashboard = () => {
   const [orderToBeDeleted, setOrderToBeDeleted] = useState(null);

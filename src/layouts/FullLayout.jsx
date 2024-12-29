@@ -2,7 +2,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from '../views/ErrorFallback';
-import AlertSlide from '../components/AlertSlide/AlertSlide';
+import AlertSlide from '../components/AlertSlide';
 
 const FullLayout = () => {
   const location = useLocation();

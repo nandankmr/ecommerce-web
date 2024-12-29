@@ -1,6 +1,6 @@
 import {X} from 'react-feather';
 import {useDispatch, useSelector} from 'react-redux';
-import {hideAlertMessage} from '../../store/CommonSlice';
+import {hideAlertMessage} from '../store/CommonSlice';
 
 export default function AlertSlide() {
   const message = useSelector((state) => state.common.alertMessage);
