@@ -4,6 +4,7 @@ import { useQuery, useQueryClient } from "react-query";
 import { Button, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Edit2, Trash2 } from "react-feather";
+import paginationFactory from 'react-bootstrap-table2-paginator';
 import axiosInstance from "../utils/AxiosInstrance";
 import Loader from "../layouts/loader/Loader";
 import { showAlert } from "../utils/common";
@@ -101,7 +102,14 @@ const Dashboard = () => {
     <div
       className="w-100 d-flex flex-column"
     >
-      <h1>Order Management</h1>
+      <div className="d-flex justify-content-between">
+        <h2>Order Management</h2>
+        <div className="d-flex">
+          <Link to="/create-order">
+            <Button color="primary">New Order</Button>
+          </Link>
+        </div>
+      </div>
       <div className="d-flex justify-content-end pb-2">
         <Input className="w-50" placeholder="Search by Order Description or Order ID"
           onChange={(e) => setFilterText(e.target.value)} />
@@ -111,12 +119,12 @@ const Dashboard = () => {
         data={filteredData}
         columns={columns}
         noDataIndication="No orders found"
+        pagination={paginationFactory({
+          sizePerPage: 5,
+          paginationSize: 5,
+          hideSizePerPage: true,
+        })}
       />
-      <div className="d-flex">
-        <Link to="/create-order">
-          <Button color="primary">New Order</Button>
-        </Link>
-      </div>
       {orderToBeDeleted ? (
         <ConfirmationModal isOpen={!!orderToBeDeleted} yes={deleteSelectedOrder} no={() => setOrderToBeDeleted(null)} loader={loader} />
       ) : null}

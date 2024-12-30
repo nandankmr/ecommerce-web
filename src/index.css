@@ -54,6 +54,19 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(242, 242, 242) !important;
+}
+
+.fixedTopbar .topbar.bottom {
+  box-shadow: rgb(17, 17, 17) 0px 15px 10px -15px;
+}
+
+.fixedTopbar .topbar {
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 9;
 }
 
 h1 {

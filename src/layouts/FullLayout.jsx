@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from '../views/ErrorFallback';
 import AlertSlide from '../components/AlertSlide';
+import Header from './Header';
 
 const FullLayout = () => {
   const location = useLocation();
@@ -15,10 +16,11 @@ const FullLayout = () => {
       >
         {/** ******Content Area**********/}
         <div
-          className='contentArea flex-grow-1'
+          className='contentArea fixedTopbar flex-grow-1'
         >
+          <Header />
           {/** ******Middle Content**********/}
-          <Container fluid>
+          <Container fluid className="py-5">
             <div>
               <ErrorBoundary
                 FallbackComponent={ErrorFallback}

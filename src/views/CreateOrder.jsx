@@ -2,11 +2,12 @@ import { useQuery } from "react-query";
 import { useFormik } from "formik";
 import { Button, Form, FormFeedback, Input, Label } from "reactstrap";
 import * as Yup from "yup";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../utils/AxiosInstrance";
 import Loader from "../layouts/loader/Loader";
 import { showAlert } from "../utils/common";
 import { useState } from "react";
+import { ArrowLeft } from "react-feather";
 
 const Dashboard = () => {
     const params = useParams();
@@ -85,7 +86,19 @@ const Dashboard = () => {
 
     return (
         <div className="w-100 d-flex flex-column">
-            {editId ? <h1>Edit Order</h1> : <h1>New Order</h1>}
+            <div className="d-flex align-items-center gap-2">
+                <Link to="/dashboard">
+                    <Button
+                        title="Back to Dashboard"
+                        color="#d9d9d9"
+                        size="sm"
+                        className="rounded-circle p-0"
+                    >
+                        <ArrowLeft />
+                    </Button>
+                </Link>
+                {editId ? <h2>Edit Order</h2> : <h2>New Order</h2>}
+            </div>
 
             <Form onSubmit={formik.handleSubmit}>
                 <div>
@@ -139,7 +152,7 @@ const Dashboard = () => {
                     <Button type="submit" color="primary" disabled={loader}>Submit</Button>
                 </div>
             </Form>
-        </div>
+        </div >
     )
 }
 
